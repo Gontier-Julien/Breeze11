@@ -27,6 +27,8 @@ find_package(KDecoration2 REQUIRED)
 # old stuff
 add_definitions(-DTRANSLATION_DOMAIN="breeze_kwin_deco")
 
+
+#find_package(KF5 REQUIRED COMPONENTS CoreAddons GuiAddons ConfigWidgets WindowSystem I18n IconThemes)
 find_package(KF5 REQUIRED COMPONENTS CoreAddons GuiAddons ConfigWidgets WindowSystem I18n)
 find_package(Qt5 CONFIG REQUIRED COMPONENTS DBus)
 
@@ -34,7 +36,7 @@ find_package(Qt5 CONFIG REQUIRED COMPONENTS DBus)
 find_package(XCB COMPONENTS XCB)
 set_package_properties(XCB PROPERTIES
   DESCRIPTION "X protocol C-language Binding"
-  URL "http://xcb.freedesktop.org"
+  URL "https://xcb.freedesktop.org"
   TYPE OPTIONAL
   PURPOSE "Required to pass style properties to native Windows on X11 Platform"
 )
@@ -97,9 +99,9 @@ add_library(breeze10 MODULE
 
 target_link_libraries(breeze10
     PUBLIC
-        Qt5::Core
-        Qt5::Gui
-        Qt5::DBus
+        Qt::Core
+        Qt::Gui
+        Qt::DBus
     PRIVATE
         breeze10common5
         KDecoration2::KDecoration
@@ -108,17 +110,18 @@ target_link_libraries(breeze10
         KF5::ConfigWidgets
         KF5::GuiAddons
         KF5::I18n
+#        KF5::IconThemes
         KF5::WindowSystem)
 
 if(BREEZE_HAVE_X11)
   target_link_libraries(breeze10
     PUBLIC
-      Qt5::X11Extras
+      Qt::X11Extras
       XCB::XCB)
 endif()
 
 
-install(TARGETS breeze10 DESTINATION ${PLUGIN_INSTALL_DIR}/org.kde.kdecoration2)
+install(TARGETS breeze10 DESTINATION ${KDE_INSTALL_PLUGINDIR}/org.kde.kdecoration2)
 install(FILES config/breeze10config.desktop DESTINATION  ${SERVICES_INSTALL_DIR})
 # install(TARGETS breezedecoration DESTINATION ${PLUGIN_INSTALL_DIR}/org.kde.kdecoration2)
-# install(FILES config/breezedecorationconfig.desktop DESTINATION  ${SERVICES_INSTALL_DIR})
+# install(FILES config/breezedecorationconfig.desktop DESTINATION  ${KDE_INSTALL_KSERVICES5DIR})

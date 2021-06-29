@@ -34,11 +34,12 @@ namespace Breeze
     using InternalSettingsListIterator = QListIterator<InternalSettingsPtr>;
 
     //* metrics
-    enum Metrics
+    namespace Metrics
     {
 
         // shadow dimensions (pixels)
-        Shadow_Overlap = 3,
+        //Shadow_Overlap = 3,
+        static constexpr int Shadow_Overlap = 3;
 
     };
 
