@@ -41,6 +41,9 @@ namespace Breeze
         //Shadow_Overlap = 3,
         static constexpr int Shadow_Overlap = 3;
 
+        //* corner radius, in units of small spacing
+        static constexpr qreal Frame_FrameRadius = 3;
+
     };
 
     //* exception
