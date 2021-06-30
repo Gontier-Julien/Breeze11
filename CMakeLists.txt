@@ -1,5 +1,5 @@
 
-project(breeze10)
+project(breeze11)
 set(PROJECT_VERSION "0.1")
 set(PROJECT_VERSION_MAJOR 0)
 
@@ -62,18 +62,18 @@ add_subdirectory(libbreezecommon)
 
 ################# newt target #################
 ### plugin classes
-set(breeze10_SRCS
+set(breeze11_SRCS
     breezebutton.cpp
     breezedecoration.cpp
     breezeexceptionlist.cpp
     breezesettingsprovider.cpp
     breezesizegrip.cpp)
 
-kconfig_add_kcfg_files(breeze10_SRCS breezesettings.kcfgc)
+kconfig_add_kcfg_files(breeze11_SRCS breezesettings.kcfgc)
 
 ### config classes
 ### they are kept separately because they might move in a separate library in the future
-set(breeze10_config_SRCS
+set(breeze11_config_SRCS
     config/breezeconfigwidget.cpp
     config/breezedetectwidget.cpp
     config/breezeexceptiondialog.cpp
@@ -82,28 +82,28 @@ set(breeze10_config_SRCS
     config/breezeitemmodel.cpp
 )
 
-set(breeze10_config_PART_FORMS
+set(breeze11_config_PART_FORMS
    config/ui/breezeconfigurationui.ui
    config/ui/breezedetectwidget.ui
    config/ui/breezeexceptiondialog.ui
    config/ui/breezeexceptionlistwidget.ui
 )
 
-ki18n_wrap_ui(breeze10_config_PART_FORMS_HEADERS ${breeze10_config_PART_FORMS})
+ki18n_wrap_ui(breeze11_config_PART_FORMS_HEADERS ${breeze11_config_PART_FORMS})
 
 ### build library
-add_library(breeze10 MODULE
-    ${breeze10_SRCS}
-    ${breeze10_config_SRCS}
-    ${breeze10_config_PART_FORMS_HEADERS})
+add_library(breeze11 MODULE
+    ${breeze11_SRCS}
+    ${breeze11_config_SRCS}
+    ${breeze11_config_PART_FORMS_HEADERS})
 
-target_link_libraries(breeze10
+target_link_libraries(breeze11
     PUBLIC
         Qt::Core
         Qt::Gui
         Qt::DBus
     PRIVATE
-        breeze10common5
+        breeze11common5
         KDecoration2::KDecoration
         KF5::ConfigCore
         KF5::CoreAddons
@@ -114,14 +114,14 @@ target_link_libraries(breeze10
         KF5::WindowSystem)
 
 if(BREEZE_HAVE_X11)
-  target_link_libraries(breeze10
+  target_link_libraries(breeze11
     PUBLIC
       Qt::X11Extras
       XCB::XCB)
 endif()
 
 
-install(TARGETS breeze10 DESTINATION ${KDE_INSTALL_PLUGINDIR}/org.kde.kdecoration2)
-install(FILES config/breeze10config.desktop DESTINATION  ${SERVICES_INSTALL_DIR})
+install(TARGETS breeze11 DESTINATION ${KDE_INSTALL_PLUGINDIR}/org.kde.kdecoration2)
+install(FILES config/breeze11config.desktop DESTINATION  ${SERVICES_INSTALL_DIR})
 # install(TARGETS breezedecoration DESTINATION ${PLUGIN_INSTALL_DIR}/org.kde.kdecoration2)
 # install(FILES config/breezedecorationconfig.desktop DESTINATION  ${KDE_INSTALL_KSERVICES5DIR})

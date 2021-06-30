@@ -2,15 +2,15 @@
     "KPlugin": {
         "Description": "Window decoration using the Breeze visual style for the Plasma Desktop",
         "EnabledByDefault": true,
-        "Id": "com.github.fauzie811.breeze10",
-        "Name": "Breeze10",
+        "Id": "com.github.Gontier-Julien.Breeze11",
+        "Name": "Breeze11",
         "ServiceTypes": [
             "org.kde.kdecoration2"
         ]
     },
     "org.kde.kdecoration2": {
         "blur": true,
-        "defaultTheme": "Breeze10",
+        "defaultTheme": "Breeze11",
         "kcmodule": true,
         "recommendedBorderSize": "None"
     }
