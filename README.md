@@ -1,17 +1,18 @@
-# Breeze10
+# Breeze11
 
 ## Overview
 
-Breeze10 is a fork of KDE Breeze decoration with the following changes:
+Breeze11 is a fork of KDE Breeze decoration with the following changes:
 
  * The title-bar opacity is configurable.
  * The separator between title-bar and window is removed.
  * Opaqueness, opacity override is added to the exception list properties.
  * Title-bar font is set indpendent from the KDE font settings (for use outside KDE).
+ * Rounded Corner like Windows 11.
 
 ## Credits
 
-Breeze10 was started from BreezeEnhanced (https://github.com/tsujan/BreezeEnhanced), a former fork of Breeze with title-bar translucency and blurring.
+Breeze11 was started from BreezeEnhanced (https://github.com/tsujan/BreezeEnhanced), a former fork of Breeze with title-bar translucency and blurring.
 
 ## Dependencies
 
