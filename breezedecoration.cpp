@@ -499,8 +499,7 @@ namespace Breeze
             }
 
             if( s->isAlphaChannelSupported() ) painter->drawRoundedRect(rect(), m_scaledCornerRadius, m_scaledCornerRadius);
-
-            painter->drawRect( rect() );
+            else painter->drawRect( rect() );
 
             painter->restore();
         }
