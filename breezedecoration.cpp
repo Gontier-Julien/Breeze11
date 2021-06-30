@@ -540,7 +540,10 @@ namespace Breeze
         painter->setBrush( titleBarColor );
 
         auto s = settings();
-        painter->drawRect(titleRect);
+        if( isMaximized() || !s->isAlphaChannelSupported() )
+        {
+
+            painter->drawRect(titleRect);
 
        } else if( c->isShaded() ) {
 
