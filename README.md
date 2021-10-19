@@ -1,4 +1,4 @@
-# Breeze11 (In progress)
+# Breeze11 (Halted at the moment)
 
 ## Overview
 
